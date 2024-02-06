@@ -1,43 +1,54 @@
-# MonteCarlo with ReinforcementLearning
+# Monte Carlo with Reinforcement Learning
 
-This repository contains two Python scripts for playing Tic-Tac-Toe using a combination of Monte Carlo simulations and Reinforcement Learning.
+This project implements the game of Tic-Tac-Toe using both Monte Carlo simulation and Minimax algorithms for reinforcement learning. It explores two different strategies for an AI player: one that utilizes Monte Carlo simulation and another that utilizes the Minimax algorithm. Additionally, there's an interactive mode where a human player can play against the AI player using the trained models.
 
-## Reinforcement Learning (mcts-rl.py)
+## Description
 
-### Overview
-- `mcts-rl.py` implements a Tic-Tac-Toe game where the AI player uses a combination of Q-learning and Monte Carlo simulations to make intelligent moves.
-- The Q-learning algorithm updates the Q-table based on game outcomes, and the AI player makes decisions based on the Q-values.
+The project consists of three Python files:
 
-### Usage
-1. Run the script: `python mcts-rl.py`
-2. Follow the on-screen instructions to play the game against the reinforcement learning AI.
+1. `train-with-random-montecarlo.py`: This script trains an AI player using Monte Carlo simulation. It generates training data by simulating games against random moves. After each game, the Q-values are updated using the rewards obtained from the simulations.
 
-## Automated Training with Minimax (trainwith minimax.py)
+2. `train-with-minimax.py`: This script trains an AI player using the Minimax algorithm. It searches through the game tree using the Minimax algorithm to find the best move for the AI player. Similar to the Monte Carlo approach, it updates the Q-values after each game.
 
-### Overview
-- `trainwith minimax.py` automates the training process by using the Minimax algorithm to train the AI player against itself.
-- The script simulates games and updates the Q-table with the results.
+3. `AI-play.py`: This script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
 
-### Usage
-1. Run the script: `python trainwith minimax.py`
-2. Adjust the number of training episodes and other parameters in the script as needed.
+## Algorithms Used
 
-## Files
+1. **Monte Carlo Simulation**: Monte Carlo simulation is used to estimate the value of a move by running multiple simulations of random moves and averaging the results. This allows the AI player to explore different paths in the game tree and make informed decisions.
 
-- `mcts-rl.py`: Main script for playing Tic-Tac-Toe against the reinforcement learning AI.
-- `trainwith minimax.py`: Script to automate the training process using the Minimax algorithm.
-- `qtablex.pkl`: Pickle file storing the Q-table for the reinforcement learning AI.
+2. **Minimax Algorithm**: The Minimax algorithm is a decision-making algorithm used in two-player games. It searches through the game tree to find the optimal move for the AI player, assuming that the opponent plays optimally as well. It minimizes the potential loss (hence the name Minimax) in the worst-case scenario.
 
-## License
+3. **Q-learning Algorithm with Greedy Policy**: Q-learning is a model-free reinforcement learning algorithm used for learning optimal actions. In this project, the AI player uses Q-learning with a greedy policy to select actions. Q-learning updates the Q-values of state-action pairs based on the rewards obtained and learns to choose actions that maximize the expected future rewards.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Python Object Serialization with Pickle
 
-## Statistics
+Python object serialization is used in this project to save and load the trained Q-tables. The Pickle module in Python is employed for this purpose, allowing objects to be converted into a byte stream for storage or transmission.
 
-- Total games played: [Replace with the total number of games played]
-- AI wins: [Replace with the number of AI wins]
-- AI losses: [Replace with the number of AI losses]
-- Draws: [Replace with the number of draws]
+## Project Process
 
-Feel free to customize this README based on your specific project details and requirements.
+1. **Training with Monte Carlo Simulation**: The `train-with-random-montecarlo.py` script trains the AI player by simulating games against random moves. It updates the Q-values after each game based on the rewards obtained from the simulations.
 
+2. **Training with Minimax Algorithm**: The `train-with-minimax.py` script trains the AI player using the Minimax algorithm. It searches through the game tree to find the best move for the AI player, updating the Q-values similarly to the Monte Carlo approach.
+
+3. **AI Player Interaction**: The `AI-play.py` script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
+
+## Usage
+
+To train the AI player using Monte Carlo simulation:
+```bash
+$ python train-with-random-montecarlo.py
+```
+
+To train the AI player using the Minimax algorithm:
+```bash
+$ python train-with-minimax.py
+```
+
+To play against the trained AI player:
+```bash
+$ python AI-play.py
+```
+
+---
+
+This README provides an overview of your project, explains the algorithms used, outlines the process involved in training and using the AI player, and highlights the use of Python object serialization with Pickle.
