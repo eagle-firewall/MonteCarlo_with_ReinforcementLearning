@@ -10,7 +10,7 @@ The project consists of three Python files:
 
 2. `train-with-minimax.py`: This script trains an AI player using the Minimax algorithm. It searches through the game tree using the Minimax algorithm to find the best move for the AI player. Similar to the Monte Carlo approach, it updates the Q-values after each game.
 
-3. `AI-play.py`: This script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
+3. `mcts-rl.py`: This script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
 
 ## Algorithms Used
 
@@ -30,7 +30,7 @@ Python object serialization is used in this project to save and load the trained
 
 2. **Training with Minimax Algorithm**: The `train-with-minimax.py` script trains the AI player using the Minimax algorithm. It searches through the game tree to find the best move for the AI player, updating the Q-values similarly to the Monte Carlo approach.
 
-3. **AI Player Interaction**: The `AI-play.py` script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
+3. **AI Player Interaction**: The `mcts-rl.py` script allows the user to play against the trained AI player. It loads the trained Q-table and prompts the user to make a move. The AI player then selects its move based on the learned Q-values.
 
 ## Usage
 
@@ -46,7 +46,7 @@ $ python train-with-minimax.py
 
 To play against the trained AI player:
 ```bash
-$ python AI-play.py
+$ python mcts-rl.py
 ```
 
 ---
